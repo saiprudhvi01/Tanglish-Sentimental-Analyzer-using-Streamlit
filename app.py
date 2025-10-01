@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file, flash
 import os
-# import pandas as pd  # Removed for compatibility
+import pandas as pd
 from werkzeug.utils import secure_filename
 from tanglish_sentiment_mega import analyze_sentiment
 
@@ -40,7 +40,7 @@ def index():
 
                 # Process CSV
                 try:
-                    df = # pd.read_csv  # Using simple CSV reading instead(filepath)
+                    df = pd.read_csv(filepath)
                     text_column = request.form.get('text_column', 'text')
 
                     if text_column not in df.columns:
